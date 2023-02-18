@@ -4,6 +4,10 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
 io.on('connection', (socket) => {
+    socket.on('disconnect', () => {
+        console.log('X desconectou: ' + socket.id);
+    });
+
     socket.on('olá', (data) => {
         socket.emit('result', 'Sua resposta foi: ' + data.answer);
     });

@@ -15,6 +15,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.0/socket.io.js"></script>
 <script>
     const socket = io('http://localhost:3000');
+    socket.on('disconnect', () => {});
     const sendAnswer = () => {
         const answer = document.getElementById('answer');
         socket.emit('olá', { answer: answer.value });
